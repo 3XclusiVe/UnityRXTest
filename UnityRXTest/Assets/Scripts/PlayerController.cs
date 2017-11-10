@@ -1,4 +1,5 @@
 ﻿using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,17 @@ public class PlayerController : MonoBehaviour
     private CharacterController _character;
     [SerializeField]
     private float _walkSpeed;
+
+    private void Awake()
+    {
+        var log = this.LateUpdateAsObservable()
+            .Subscribe(_ =>
+                {
+
+                }
+            );
+
+    }
 
     private void Start()
     {
